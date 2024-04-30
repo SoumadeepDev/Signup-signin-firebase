@@ -5,6 +5,9 @@ import {
   doSignInWithGoogle,
 } from "../../../firebase/auth";
 import { useAuth } from "../../../contexts/authContext";
+import { FaGoogle } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa";
 
 const Login = () => {
   const { userLoggedIn } = useAuth();
@@ -13,6 +16,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [isSigningIn, setIsSigningIn] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -73,12 +77,12 @@ const Login = () => {
               />
             </div>
 
-            <div>
+            <div className="relative">
               <label className="text-sm text-gray-600 font-bold">
                 Password
               </label>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 autoComplete="current-password"
                 required
                 value={password}
@@ -87,6 +91,18 @@ const Login = () => {
                 }}
                 className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute inset-y-0 right-0 flex items-center px-3 py-5 bg-transparent focus:outline-none"
+                style={{ top: "2rem" }}
+              >
+                {showPassword ? (
+                  <FaRegEye size={20} />
+                ) : (
+                  <FaEyeSlash size={20} />
+                )}
+              </button>
             </div>
 
             {errorMessage && (
@@ -127,14 +143,7 @@ const Login = () => {
                 : "hover:bg-gray-100 transition duration-300 active:bg-gray-100"
             }`}
           >
-            <svg
-              className="w-5 h-5"
-              viewBox="0 0 48 48"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Google SVG */}
-            </svg>
+            <FaGoogle />
             {isSigningIn ? "Signing In..." : "Continue with Google"}
           </button>
         </div>
