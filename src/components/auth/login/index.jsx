@@ -62,7 +62,7 @@ const Login = () => {
               </h3>
             </div>
           </div>
-          <form onSubmit={onSubmit} className="space-y-5">
+          <form onSubmit={onSubmit} className="space-y-4">
             <div>
               <label className="text-sm text-gray-600 font-bold">Email</label>
               <input
@@ -78,7 +78,7 @@ const Login = () => {
             </div>
 
             <div className="relative">
-              <label className="text-sm text-gray-600 font-bold">
+              <label className="text-sm text-gray-600 font-bold ">
                 Password
               </label>
               <input
@@ -95,7 +95,9 @@ const Login = () => {
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute inset-y-0 right-0 flex items-center px-3 py-5 bg-transparent focus:outline-none"
-                style={{ top: "2rem" }}
+                style={{
+                  top: "3.5rem",
+                }}
               >
                 {showPassword ? (
                   <FaRegEye size={20} />
