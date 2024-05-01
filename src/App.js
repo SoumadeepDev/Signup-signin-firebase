@@ -1,6 +1,8 @@
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import Login from "./components/auth/login";
 import Register from "./components/auth/register";
 import CompletePage from "./components/completePage/CompletePage";
+import EmailVerification from "./components/emailverification/EmailVerification";
 
 import Header from "./components/header";
 import Home from "./components/home";
@@ -33,6 +35,14 @@ function App() {
     {
       path: "/completepage",
       element: <CompletePage />,
+    },
+    {
+      path: "/forgotpassword",
+      element: <ForgotPassword />,
+    },
+    {
+      path: "/emailverificationpage",
+      element: <EmailVerification />,
     },
   ];
   let routesElement = useRoutes(routesArray);

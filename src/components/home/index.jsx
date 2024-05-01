@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const { currentUser } = useAuth();
   console.log(currentUser);
+  console.log("User Access Token :", currentUser.accessToken);
   return (
     <>
       <div className="flex justify-between p-4 px-10">

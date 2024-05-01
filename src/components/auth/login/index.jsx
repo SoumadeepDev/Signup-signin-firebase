@@ -63,7 +63,7 @@ const Login = () => {
             </div>
           </div>
           <form onSubmit={onSubmit} className="space-y-4">
-            <div>
+            <div className="relative block items-center">
               <label className="text-sm text-gray-600 font-bold">Email</label>
               <input
                 type="email"
@@ -77,10 +77,10 @@ const Login = () => {
               />
             </div>
 
-            <div className="relative">
-              <label className="text-sm text-gray-600 font-bold ">
-                Password
-              </label>
+            <label className="text-sm text-gray-600 inline-block font-bold my-0 py-0">
+              Password
+            </label>
+            <div className="relative flex items-center">
               <input
                 type={showPassword ? "text" : "password"}
                 autoComplete="current-password"
@@ -95,9 +95,9 @@ const Login = () => {
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute inset-y-0 right-0 flex items-center px-3 py-5 bg-transparent focus:outline-none"
-                style={{
-                  top: "3.5rem",
-                }}
+                // style={{
+                //   marginTop: "2rem",
+                // }}
               >
                 {showPassword ? (
                   <FaRegEye size={20} />
@@ -106,6 +106,16 @@ const Login = () => {
                 )}
               </button>
             </div>
+            <p className="py-2">
+              {errorMessage && (
+                <Link
+                  to={"/forgotpassword"}
+                  className="text-blue-600 italic underline"
+                >
+                  forgot password
+                </Link>
+              )}
+            </p>
 
             {errorMessage && (
               <span className="text-red-600 font-bold">{errorMessage}</span>
