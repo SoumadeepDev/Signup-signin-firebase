@@ -3,6 +3,7 @@ import Login from "./components/auth/login";
 import Register from "./components/auth/register";
 import CompletePage from "./components/completePage/CompletePage";
 import EmailVerification from "./components/emailverification/EmailVerification";
+import ExpenseHome from "./components/expenseListHome/ExpenseHome";
 
 import Header from "./components/header";
 import Home from "./components/home";
@@ -43,6 +44,10 @@ function App() {
     {
       path: "/emailverificationpage",
       element: <EmailVerification />,
+    },
+    {
+      path: "/home/expensehome",
+      element: <ExpenseHome />,
     },
   ];
   let routesElement = useRoutes(routesArray);
