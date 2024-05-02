@@ -48,7 +48,7 @@ function App() {
   let routesElement = useRoutes(routesArray);
   return (
     <AuthProvider>
-      <ToastContainer />
+      <ToastContainer pauseOnHover autoClose={2500} />
       <Header />
       <div className="w-full h-screen flex flex-col">{routesElement}</div>
     </AuthProvider>
